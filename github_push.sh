@@ -1,7 +1,8 @@
 #!/bin/bash
 bash_path=$1
 
-echo "需要提交代码的仓库路径: $bash_path"
+commit_message="atuo commit from ["$USER"]"
+echo $commit_message
 
 for file in $bash_path/*; do
 	# 判断是否是目录并且是git仓库
@@ -11,15 +12,17 @@ for file in $bash_path/*; do
     	cd $file
     	# 获取当前分支
     	current_branch=`git branch --show-current`
-    	echo "current_branch = $current_branch"
+    	echo "path = $file + current_branch = $current_branch"
+    	git pull --rebase origin $current_branch
+    	echo "pull origin branch success!"
     	git add .
-    	git commit -m "auto commit from ["$USER"]"
-    	git push origin current_branch
+    	git commit -m "$commit_message"
+    	git push origin $current_branch
+    	echo "push ${current_branch} to remote success!"
     	cd -
     else
     	echo $file 不是目录
     fi
 done
-
 
 

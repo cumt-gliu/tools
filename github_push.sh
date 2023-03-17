@@ -21,7 +21,7 @@ for file in $bash_path/*; do
     	echo "push ${current_branch} to remote success!"
     	cd -
     else
-    	echo $file 不是目录
+    	echo $file 不是git仓库
     fi
 done
 

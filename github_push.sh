@@ -1,5 +1,5 @@
 #!/bin/bash
-bash_path="/Users/giannis.liu/development/github"
+bash_path="/xxxx"
 # 提交信息
 commit_message="atuo commit from ["$USER"]"
 
